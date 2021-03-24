@@ -7,9 +7,9 @@ class App extends Component {
   constructor() {//Khoi tao array
     super();//Contructor class kế thừa
     this.TodoItem = [
-      'Code JS',
-      'Code Java',
-      'Code C#'
+      {title: "Code JS", isdone: true},
+      {title: "Code Java", isdone: true},
+      {title: "Code C#", isdone: false},
     ];
   }
   render(){
@@ -18,7 +18,7 @@ class App extends Component {
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
           {
-            this.TodoItem.map((item, index) => <TodoItem key={index} title = {item} />)// Tuong tu for each
+            this.TodoItem.map((item, index) => <TodoItem key={index} item = {item} />)// Tuong tu for each //props
           }
 
         </header>
