@@ -1,27 +1,31 @@
 import logo from './logo.svg';
 import './App.css';
 import TodoItem from './Components/Todoitem';
+import React, {Component} from 'react';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <TodoItem title="Code JS" />
-        <TodoItem title="Code Java" />
-        <TodoItem title="Code C#" />
-        
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+  constructor() {//Khoi tao array
+    super();//Contructor class kế thừa
+    this.TodoItem = [
+      'Code JS',
+      'Code Java',
+      'Code C#'
+    ];
+  }
+  render(){
+    return (
+      <div className="App">
+        <header className="App-header">
+          <img src={logo} className="App-logo" alt="logo" />
+          {
+            this.TodoItem.map((item, index) => <TodoItem key={index} title = {item} />)// Tuong tu for each
+          }
+
+        </header>
+      </div>
+    );
+  }
+  
 }
 
 export default App;
